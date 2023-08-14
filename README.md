@@ -37,7 +37,7 @@ $ git clone padaria-doc
 # Execute neste banco os scripts SQL contidos no repositorio padaria-doc/ddl.
 
 # Acesse a pasta do projeto no seu terminal
-$ cd padaria-doc
+$ cd padaria-api
 
 # Compile com sua IDE preferida.
 # Excute. 
