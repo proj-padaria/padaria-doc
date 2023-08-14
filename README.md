@@ -10,7 +10,11 @@ Documentação para o sistema de gestão de padarias.
 
 ### Sobre o projeto
 
-O projeto padaria um sistema para gestão de padarias composto pelos . É uma atividade final de um treinamento que tivemos com os seguintes módulos:
+O projeto padaria um sistema para gestão de padarias composto pelos repositories:
+- padaria-api
+- padaria-doc
+- padaria-web
+- padaria-. É uma atividade final de um treinamento que tivemos com os seguintes módulos:
 <li>TI-Introdução
   <li>Lógica de programação (Fluxogramas com codificação Java)</li>
 </li>
