@@ -28,8 +28,6 @@ O projeto padaria um sistema para gestão de padarias composto pelos repositorie
 1. Banco de dados relacional [PostgreSQL](https://www.postgresql.org/) 
 2. Documentação da modelagem do banco de dados pelo [MySQLWorkbench](https://www.mysql.com/products/workbench/)
 
-### Agradecimentos
-
 ### Como executar este projeto
 ```bash
 # Clone este repositório
@@ -51,6 +49,7 @@ http://localhost:8080/cidades/list
 # Para endpoints que contenham um body, é indicado utilizar o aplicativo Postman ou um similar.
 ```
 
+### Agradecimentos
 
 
 ### Autores
