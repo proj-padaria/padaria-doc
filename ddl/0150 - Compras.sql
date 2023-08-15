@@ -1,5 +1,5 @@
 CREATE TABLE pagar (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id SERIAL NOT NULL PRIMARY KEY,
   fornecedor_id INT NOT NULL REFERENCES pessoas(id)
     				ON DELETE RESTRICT
     				ON UPDATE CASCADE,
@@ -14,3 +14,37 @@ CREATE TABLE pagar (
 
 CREATE INDEX fornecedor_id_idx ON pagar (fornecedor_id);
 CREATE INDEX compra_id_idx ON pagar (compra_id);
+
+CREATE TABLE compras (
+  id SERIAL NOT NULL PRIMARY KEY,
+  fornecedor_id INT NOT NULL,
+  plano_pagamento_id INT NOT NULL REFERENCES planos_pagamento(id)
+									ON UPDATE CASCADE
+									ON DELETE RESTRICT,
+  data_compra DATE NOT NULL,
+  valor_total_comprado DECIMAL(14,2) NOT NULL,
+  valor_total_recebido DECIMAL(14,2) NULL,
+  data_recebimento DATE NULL,
+);
+							  
+CREATE  INDEX x_compras_data_compra ON data_compra(date);
+CREATE  INDEX fk_plano_pagamento_idx ON plano_pagamento_id(id);
+    
+CREATE TABLE compras_itens (
+  id SERIAL NOT NULL PRIMARY KEY,
+  compras_id INT NOT NULL REFERENCES compras(id)
+							ON UPDATE CASCADE
+							ON DELETE RESTRICT,
+  produto_id INT NOT NULL REFERENCES produtos(id)
+							ON UPDATE CASCADE
+							ON DELETE RESTRICT,
+  quantidade_comprada DECIMAL(12,3) NOT NULL,
+  quantidade_recebida DECIMAL(12,3) NOT NULL DEFAULT 0,
+  preco_unitario DECIMAL(14,2) NOT NULL,
+  total_da_linha DECIMAL(14,2) NOT NULL
+);
+
+CREATE  INDEX produto_id_idx ON produto_id(id);
+CREATE  INDEX compras_id_idx ON compras_id(id);
+  
+
