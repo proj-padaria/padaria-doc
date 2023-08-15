@@ -1,9 +1,9 @@
 CREATE TABLE departamentos(
   id SERIAL NOT NULL PRIMARY KEY,
-  nome VARCHAR(30) NOT NULL
+  nome VARCHAR(30) NOT NULL,
 );
 
-CREATE TABLE produtos(
+CREATE TABLE produtos (
   id SERIAL NOT NULL PRIMARY KEY,
   departamento_id INT NOT NULL REFERENCES departamentos(id)
 									ON UPDATE CASCADE
@@ -16,4 +16,8 @@ CREATE TABLE produtos(
   ponto_pedido INT NOT NULL DEFAULT 0,
 );
 
-CREATE INDEX fk_produtos_departamentos_idx ON departamentos(id);
+CREATE INDEX produto_id_idx ON produtos(id);
+
+CREATE INDEX produto_nome_ASC_idx ON produtos(nome ASC);
+
+CREATE INDEX produto_quantidade_estoque_idx ON produtos(quantidade_em_estoque);
