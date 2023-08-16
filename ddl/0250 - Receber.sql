@@ -6,10 +6,10 @@ CREATE TABLE receber (
   cliente_id INT NOT NULL,
   valor DECIMAL(14,2) NOT NULL,
   data_vencimento DATE NOT NULL,
-  data_pagamento DATE NOT NULL
+  data_pagamento DATE
 );
 
-CREATE  INDEX venda_id_idx ON vendas_id(id);
+CREATE  INDEX x_receber_vendas_id ON receber(vendas_id);
 
 
     
