@@ -1,16 +1,3 @@
-CREATE TABLE telefones (
-  id SERIAL NOT NULL PRIMARY KEY,
-  pessoa_id INT NOT NULL REFERENCES pessoas(id)
-							ON UPDATE CASCADE
-    						DELETE RESTRICT,
-  ddd VARCHAR(3) NOT NULL,
-  numero VARCHAR(10) NOT NULL,
-  tipo VARCHAR(3) NOT NULL DEFAULT 'CEL'
-					CHECK (tipo IN('CEL', 'FIX', 'COM'))
-);
-	
-CREATE INDEX cliente_id_idx ON telefones(pessoa_id);
-
 CREATE TABLE pessoas (
   id SERIAL NOT NULL PRIMARY KEY,
   cidade_id INT NOT NULL REFERENCES cidades(id)
@@ -25,8 +12,21 @@ CREATE TABLE pessoas (
   data_cadastro DATE NOT NULL DEFAULT current_date
 );
 
-CREATE INDEX cidade_id_idx ON pessoas(cidade_id);
+CREATE INDEX x_pessoas_cidade_id ON pessoas(cidade_id);
 CREATE INDEX x_pessoas_nome ON pessoas(nome);
+
+CREATE TABLE telefones (
+  id SERIAL NOT NULL PRIMARY KEY,
+  pessoa_id INT NOT NULL REFERENCES pessoas(id)
+							ON UPDATE CASCADE
+    						DELETE RESTRICT,
+  ddd VARCHAR(3) NOT NULL,
+  numero VARCHAR(10) NOT NULL,
+  tipo VARCHAR(3) NOT NULL DEFAULT 'CEL'
+					CHECK (tipo IN('CEL', 'FIX', 'COM'))
+);
+	
+CREATE INDEX x_telefones_pessoa_id ON telefones(pessoa_id);
 
 CREATE TABLE fornecedores (
   pessoa_id INT NOT NULL PRIMARY KEY
