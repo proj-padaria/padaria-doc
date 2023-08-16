@@ -16,8 +16,8 @@ CREATE TABLE produtos (
   ponto_pedido INT NOT NULL DEFAULT 0,
 );
 
-CREATE INDEX produto_id_idx ON produtos(id);
+CREATE INDEX x_produtos_id ON produtos(id);
 
-CREATE INDEX produto_nome_ASC_idx ON produtos(nome ASC);
+CREATE INDEX x_produtos_nome ON produtos(nome);
 
-CREATE INDEX produto_quantidade_estoque_idx ON produtos(quantidade_em_estoque);
+CREATE INDEX x_produtos_quantidade_em_estoque ON produtos(quantidade_em_estoque);
