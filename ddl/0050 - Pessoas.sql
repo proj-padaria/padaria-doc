@@ -7,7 +7,7 @@ CREATE TABLE pessoas (
   logradouro VARCHAR(40) NOT NULL,
   logradouro_numero VARCHAR(10) NOT NULL,
   bairro VARCHAR(30) NOT NULL,
-  cep VARCHAR(13) NOT NULL,
+  cep VARCHAR(10) NOT NULL,
   email TEXT,
   data_cadastro DATE NOT NULL DEFAULT current_date
 );
@@ -19,7 +19,7 @@ CREATE TABLE telefones (
   id SERIAL NOT NULL PRIMARY KEY,
   pessoa_id INT NOT NULL REFERENCES pessoas(id)
 							ON UPDATE CASCADE
-    						DELETE RESTRICT,
+    						ON DELETE RESTRICT,
   ddd VARCHAR(3) NOT NULL,
   numero VARCHAR(10) NOT NULL,
   tipo VARCHAR(3) NOT NULL DEFAULT 'CEL'
