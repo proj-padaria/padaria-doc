@@ -42,9 +42,9 @@ CREATE TABLE pagar (
     						ON DELETE RESTRICT,
   valor DECIMAL(14,2) NOT NULL,
   data_vencimento DATE NOT NULL,
-  data_pagamento DATE NULL,
-  valor_pago DECIMAL(14,2) NULL
+  data_pagamento DATE,
+  valor_pago DECIMAL(14,2)
 );
 
-CREATE INDEX fornecedor_id_idx ON pagar (fornecedor_id);
-CREATE INDEX compra_id_idx ON pagar (compra_id);
+CREATE INDEX x_fornecedor_id ON pagar (fornecedor_id);
+CREATE INDEX x_compra_id ON pagar (compra_id);
