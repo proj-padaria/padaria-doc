@@ -1,3 +1,21 @@
+CREATE TABLE planos_pagamento (
+  id SERIAL PRIMARY KEY,
+  descricao VARCHAR(30) NOT NULL,
+  prazo_medio INT NOT NULL
+);
+
+CREATE TABLE planos_pagamento_dias(
+  id SERIAL PRIMARY KEY,
+  plano_pagamento_id INT NOT NULL REFERENCES planos_pagamento(id)
+										ON UPDATE CASCADE
+										ON DELETE RESTRICT,
+  dias_do_vencimento INT NOT NULL,
+  percentual_pagamento INT NOT NULL
+);
+
+CREATE INDEX x_planos_pagamentos_dias_plano_pagamento_id ON planos_pagamento_dias(plano_pagamento_id);
+
+
 CREATE TABLE compras (
   id SERIAL NOT NULL PRIMARY KEY,
   fornecedor_id INT NOT NULL REFERENCES pessoas(id)
@@ -12,8 +30,8 @@ CREATE TABLE compras (
   data_recebimento DATE
 );
 							  
-CREATE  INDEX x_compras_data_compra ON data_compra(date);
-CREATE  INDEX fk_compras_plano_pagamento_idx ON plano_pagamento(id);
+CREATE  INDEX x_compras_data_compra ON compras(data_compra);
+CREATE  INDEX fk_compras_plano_pagamento_idx ON compras(id);
     
 CREATE TABLE compras_itens (
   id SERIAL NOT NULL PRIMARY KEY,
