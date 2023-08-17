@@ -35,20 +35,16 @@ CREATE  INDEX x_compras_itens_compra_id ON compras_itens(compra_id);
 CREATE TABLE pagar (
   id SERIAL NOT NULL PRIMARY KEY,
   fornecedor_id INT NOT NULL REFERENCES pessoas(id)
-    				ON DELETE RESTRICT
-    				ON UPDATE CASCADE,
+								ON UPDATE CASCADE
+                                ON DELETE RESTRICT,
   compra_id INT NOT NULL REFERENCES compras(id)
-				ON UPDATE CASCADE
-    				DELETE RESTRICT,
+							ON UPDATE CASCADE
+    						ON DELETE RESTRICT,
   valor DECIMAL(14,2) NOT NULL,
   data_vencimento DATE NOT NULL,
-  data_pagamento DATE NULL,
-  valor_pago DECIMAL(14,2) NULL
+  data_pagamento DATE,
+  valor_pago DECIMAL(14,2)
 );
 
-CREATE INDEX fornecedor_id_idx ON pagar (fornecedor_id);
-CREATE INDEX compra_id_idx ON pagar (compra_id);
-
-
-  
-
+CREATE INDEX x_fornecedor_id ON pagar (fornecedor_id);
+CREATE INDEX x_compra_id ON pagar (compra_id);
