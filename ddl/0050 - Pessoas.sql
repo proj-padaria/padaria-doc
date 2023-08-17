@@ -7,7 +7,7 @@ CREATE TABLE pessoas (
   logradouro VARCHAR(40) NOT NULL,
   logradouro_numero VARCHAR(10) NOT NULL,
   bairro VARCHAR(30) NOT NULL,
-  cep VARCHAR(45) NOT NULL,
+  cep VARCHAR(10) NOT NULL,
   email TEXT,
   data_cadastro DATE NOT NULL DEFAULT current_date
 );
@@ -19,7 +19,7 @@ CREATE TABLE telefones (
   id SERIAL NOT NULL PRIMARY KEY,
   pessoa_id INT NOT NULL REFERENCES pessoas(id)
 							ON UPDATE CASCADE
-    						DELETE RESTRICT,
+    						ON DELETE RESTRICT,
   ddd VARCHAR(3) NOT NULL,
   numero VARCHAR(10) NOT NULL,
   tipo VARCHAR(3) NOT NULL DEFAULT 'CEL'
@@ -39,12 +39,12 @@ CREATE TABLE fornecedores (
 CREATE INDEX fk_fornecedor_pessoa_id ON fornecedores (pessoa_id);
 CREATE INDEX x_fornecedores_cnpj ON fornecedores (cnpj);
 
-CREATE TABLE IF NOT EXISTS clientes (
+CREATE TABLE clientes (
   pessoa_id INT NOT NULL PRIMARY KEY
 						 REFERENCES pessoas (id)
     						ON DELETE RESTRICT
     						ON UPDATE CASCADE,
-  data_nascimento DATE NULL,
+  data_nascimento DATE ,
   renda_mensal DECIMAL(14,2) NOT NULL DEFAULT 0,
   documento VARCHAR(20) NULL,
   limite_de_credito DECIMAL(14,2) NOT NULL DEFAULT 0,
