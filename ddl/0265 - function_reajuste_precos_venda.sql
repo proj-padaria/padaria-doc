@@ -1,19 +1,16 @@
-CREATE OR REPLACE FUNCTION f_reajuste_preco_venda(percentual_reajuste numeric(8,2));
+CREATE OR REPLACE FUNCTION f_reajuste_preco_venda(percentual_reajuste decimal(8,2))RETURNS VOID
 AS
 $$
 DECLARE
-	preco_reajustado numeric(14,2);
-	produto_id int;
+	r record;
 BEGIN
-	--tenho que fazer um loop para cada produto
-		SELECT id, preco_venda -- tenho que colocar o valor dessas colunas em um record
-		FROM produtos 
-		
-		preco_reajustado := preco_venda *(percentual_reajuste/100 + 1);
-		
-		UPDATE produtos SET preco_venda = preco_reajustado 
-		WHERE id = produto_id;
-	--end loop;
+	FOR r in (SELECT ID, preco_venda FROM produtos ) --aqui jogamos cada valor na variavel r do record
+	LOOP
+		UPDATE produtos SET preco_venda = r.preco_venda *(percentual_reajuste/100 + 1)
+		WHERE id = r.id;
+	END LOOP;
+END;
 $$ LANGUAGE plpgsql;
 
-EXECUTE FUNCTION f_reajuste_preco_venda();
+
+
