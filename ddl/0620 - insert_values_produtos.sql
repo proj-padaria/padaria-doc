@@ -31,7 +31,7 @@ VALUES
 (8,'Bisnaguinha Panco','Bisnaga Panco',5.40,10,'000000000000',5),
 (8,'Broinha de milho','Broinha de milho',2.78,9,'000000000000',5),
 (8,'Pães de queijo','Pães de queijo',1.28,8,'000000000000',5),
-(8,'Pão de cachorro-quente','Pão de cachorro-quente',7.87,7,'000000000000',5),
+(8,'Pão de cachorro-quente','Pão cachorro-quente',7.87,7,'000000000000',5),
 (8,'Pão de forma','Pão de forma',6.78,5,'000000000000',5),
 (8,'Pão de hambúrguer.','Pão de hambúrguer.',4.57,0,'000000000000',5),
 (6,'Água sanitária','Água sanitária',5.78,2,'000000000000',5),
