@@ -1,34 +1,32 @@
-CREATE OR REPLACE FUNCTION t_tbi_procura_codigo_barra_vago
-RETURNS TRIGGER AS $$(
-	codigo_barra TEXT)
+CREATE OR REPLACE FUNCTION f_procura_produto_balanca_vago
+RETURNS INTEGER 
+$$
 DECLARE
-	i record;
+	r record;
+	produto_id INTEGER;
 BEGIN
-	codigo_barra = 0;
+	produto_id = 0;
 	
-	FOR i IN(SELECT ID, codigo_barra FROM produtos
-			WHERE codigo_barra < 10000
-			ORDER BY codigo_barra
+	FOR produto_id IN(SELECT ID 
+					  FROM produtos
+						WHERE ID < 10000
+						ORDER BY ID)
 	LOOP
 	DO BEGIN 
-		NEW.codigo_barra = codigo_barra + 1;
+		produto_id = produto_id + 1;
 		
-		IF (i.codigo_barra <>: NEW.codigo_barra) THEN
+		IF (produto_id <>: produto_id) THEN
 		BEGIN 
-			--SUSPEND;
+			RETURN produto_id;
 			EXIT;
 		END IF;
-		RETURN NEW;
 	END LOOP;
-	
-	EXCEPTION WHEN i.codigo_barra := 10000 THEN 
-	 RAISE NOTICE "Todos os valores vagos em codigo_barra foram preenchidos
-	 							, favor excluir codigos sem utilização"
+	produto_id = produto_id + 1;
+	IF produto_id > 9999 THEN
+		RAISE EXCEPTION "Todos os valores vagos em codigo_barra foram preenchidos,
+	 							favor excluir codigos sem utilização";
+	END IF;							
 END;		
-
-CREATE TRIGGER t_tbi_procura_codigo_barra_vago
-BEFORE INSERT ON produtos
-FOR EACH ROW
 			 
-EXECUTE FUNCTION t_tbi_procura_codigo_barra_vago();
+SELECT * FROM f_procura_produto_balanca_vago();
 						
