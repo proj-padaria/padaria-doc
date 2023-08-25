@@ -8,9 +8,9 @@ BEGIN
 	produto_id = 0;
 	
 	FOR id IN(SELECT ID 
-					  FROM produtos
-						WHERE ID < 10000
-						ORDER BY ID)
+			  FROM produtos
+			  WHERE ID < 10000
+			  ORDER BY ID)
 	LOOP
 	DO BEGIN 
 		produto_id = produto_id + 1;
