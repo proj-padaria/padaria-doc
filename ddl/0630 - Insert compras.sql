@@ -18,7 +18,7 @@ VALUES
 (),
 ();
 
-INSERT INTO pagar (fornecedor_id, compra_id, valor, data_vencimento, data_pagamento, valor pago)
+INSERT INTO pagar (fornecedor_id, compra_id, valor, data_vencimento, data_pagamento, valor_pago)
 
 VALUES
 (3, 1, 47.40, 23-08-2023, null, null),
