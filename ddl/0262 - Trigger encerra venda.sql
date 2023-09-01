@@ -4,7 +4,10 @@ DECLARE
 	vencimento DATE;
 	dia_fiado INT;
 	r record;
-	-- efetuar recebimento da compra se data_fim passar de null para uma data válida. inserir receber. atualizar estoque
+	dia_vencimento INT;
+	mes_vencimento INT;
+	ano_vencimento INT;
+	-- efetuar encerramento da venda se data_fim passar de null para uma data válida. inserir receber. atualizar estoque
 BEGIN
     IF NEW.data_fim IS NOT NULL AND OLD.data_fim IS NULL THEN
 		-- Verificar fiado
@@ -15,7 +18,22 @@ BEGIN
 			-- o vencimento = data com o dia_fiado
 			-- ATENÇÃO: Se o dia de hoje for >= o dia_fiado, então o mês do vencimento é o mês seguinte
 			-- Gerar o valor da variável vencimento
-			-- Conferir também o ano
+			
+			SELECT EXTRACT(DAY FROM CURRENT_DATE) INTO dia_vencimento;
+			SELECT EXTRACT(MONTH FROM CURRENT_DATE) INTO mes_vencimento;
+			SELECT EXTRACT(YEAR FROM CURRENT_DATE) INTO ano_vencimento;
+			
+			IF dia_vencimento >= dia_fiado THEN
+				mes_vencimento = mes_vencimento + 1;
+				IF mes_vencimento = 13 THEN
+					mes_vencimento = 1;
+					ano_vencimento = ano_vencimento + 1;
+				END IF;
+				
+			END IF;
+			-- Ajustar a data do vencimento com os valores encontrados de dia_fiado/mes_atual/ano_atual
+			vencimento = TO_DATE(dia_fiado, mes_vencimento, ano_vencimento, 'DD/MM/YYYY');
+			
         	INSERT INTO receber (venda_id, cliente_id, valor, data_vencimento)
 				VALUES (NEW.id, NEW.cliente_id, NEW.fiado, vencimento);
 		END IF;
@@ -36,7 +54,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER t_vendas_encerrar
-AFTER UPDATE ON vendas
+CREATE TRIGGER tbu_vendas_encerrar
+AFTER UPDATE ON produtos
 FOR EACH ROW
 EXECUTE FUNCTION f_vendas_encerrar();
+
+DROP TRIGGER tbu_vendas_encerrar ON produtos;
+DROP FUNCTION f_vendas_encerrar();
