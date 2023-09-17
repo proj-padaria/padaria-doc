@@ -26,5 +26,5 @@ VALUES
 ('SC','Santa Catarina'),
 ('SP','São Paulo'),
 ('SE','Sergipe'),
-('TO','Tocantins')
+('TO','Tocantins');
 

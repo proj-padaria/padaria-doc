@@ -4,8 +4,8 @@ BEGIN
     IF EXISTS (
         SELECT 1
         FROM cidades
-        WHERE UPPER(nome) = UPPER (NEW.nome) AND UPPER (uf) = UPPER (NEW.uf)
-    ) THEN
+        WHERE UPPER(nome) = UPPER (NEW.nome) AND  uf_id = NEW.uf_id)
+    THEN
         RAISE EXCEPTION 'Já existe uma cidade com o mesmo nome nesta UF.';
     END IF;
     RETURN NEW;
