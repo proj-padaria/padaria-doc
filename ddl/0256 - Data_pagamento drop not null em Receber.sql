@@ -1,0 +1,1 @@
+ALTER TABLE receber ALTER COLUMN data_pagamento DROP NOT NULL;
