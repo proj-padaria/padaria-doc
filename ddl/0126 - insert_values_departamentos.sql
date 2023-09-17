@@ -9,5 +9,5 @@ VALUES
 ('Higiene e limpeza'),
 ('Hortifruti e mercearia'),
 ('Padaria'),
-('Rotisseria')
+('Rotisseria');
 
