@@ -31,8 +31,9 @@ CREATE TABLE compras (
 );
 							  
 CREATE  INDEX x_compras_data_compra ON compras(data_compra);
-CREATE  INDEX fk_compras_plano_pagamento_idx ON compras(id);
-    
+CREATE  INDEX x_compras_plano_pagamento_id ON compras(id);
+CREATE INDEX x_compras_fornecedor_id ON compras(fornecedor_id);
+
 CREATE TABLE compras_itens (
   id SERIAL NOT NULL PRIMARY KEY,
   compra_id INT NOT NULL REFERENCES compras(id)
@@ -64,5 +65,5 @@ CREATE TABLE pagar (
   valor_pago DECIMAL(14,2)
 );
 
-CREATE INDEX x_fornecedor_id ON pagar (fornecedor_id);
-CREATE INDEX x_compra_id ON pagar (compra_id);
+CREATE INDEX x_pagar_fornecedor_id ON pagar (fornecedor_id);
+CREATE INDEX x_pagar_compra_id ON pagar (compra_id);
