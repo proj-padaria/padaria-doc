@@ -24,7 +24,13 @@ hs_err_pid*
 replay_pid*
 
 # arquivos de configuração do IntelliJ IDEA
-./.idea
+.idea
 
 # arquivos de configuração local do Java Spring
+
+
+# Arquivos binários
+modelagem-padaria.*
+agenda.xlsx
+
 
