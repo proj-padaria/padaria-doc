@@ -31,6 +31,8 @@ replay_pid*
 
 # Arquivos binários
 modelagem-padaria.*
-agenda.xlsx
+agenda.*
 
+# Arquivos backup
+*.bak
 
