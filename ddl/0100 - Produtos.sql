@@ -16,8 +16,10 @@ CREATE TABLE produtos (
   ponto_pedido INT NOT NULL DEFAULT 0
 );
 
-CREATE INDEX x_produtos_id ON produtos(id);
+CREATE INDEX x_produtos_departamento_id ON produtos(departamento_id);
 
-CREATE INDEX x_produtos_nome ON produtos(nome);
+CREATE INDEX x_produtos_nome ON produtos(UPPER(nome));
 
 CREATE INDEX x_produtos_quantidade_em_estoque ON produtos(quantidade_em_estoque);
+
+UPDATE empresa SET db_versao = "B0100";

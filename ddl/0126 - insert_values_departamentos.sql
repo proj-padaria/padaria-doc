@@ -9,5 +9,6 @@ VALUES
 ('Higiene e limpeza'),
 ('Hortifruti e mercearia'),
 ('Padaria'),
-('Rotisseria')
+('Rotisseria');
 
+UPDATE empresa SET db_versao = "B0126";

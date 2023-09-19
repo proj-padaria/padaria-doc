@@ -11,6 +11,7 @@ CREATE TABLE vendas(
 );
 
 CREATE INDEX x_vendas_data ON vendas(data);
+CREATE INDEX x_vendas_cliente_id ON vendas(cliente_id);
 
 CREATE TABLE vendas_itens(
   id SERIAL NOT NULL PRIMARY KEY,
@@ -25,10 +26,9 @@ CREATE TABLE vendas_itens(
   total_da_linha DECIMAL(14,2) NOT NULL
 );
 
-CREATE INDEX x_vendas_itens_id ON vendas_itens(id);
+CREATE INDEX x_vendas_itens_venda_id ON vendas_itens(venda_id);
 
-CREATE INDEX x_vendas_itens_quantidade ON vendas_itens(quantidade);
+CREATE INDEX x_vendas_itens_produto_id ON vendas_itens(produto_id);
 
-
-  
+UPDATE empresa SET db_versao = "B0200";
   

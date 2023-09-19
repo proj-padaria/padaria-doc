@@ -13,7 +13,7 @@ CREATE TABLE pessoas (
 );
 
 CREATE INDEX x_pessoas_cidade_id ON pessoas(cidade_id);
-CREATE INDEX x_pessoas_nome ON pessoas(nome);
+CREATE INDEX x_pessoas_nome ON pessoas(UPPER(nome));
 
 CREATE TABLE telefones (
   id SERIAL NOT NULL PRIMARY KEY,
@@ -36,7 +36,8 @@ CREATE TABLE fornecedores (
   cnpj VARCHAR(15) NOT NULL
 );
 
-CREATE INDEX fk_fornecedor_pessoa_id ON fornecedores (pessoa_id);
+
+CREATE INDEX x_fornecedores_pessoa_id ON fornecedores (pessoa_id);
 CREATE INDEX x_fornecedores_cnpj ON fornecedores (cnpj);
 
 CREATE TABLE clientes (
@@ -51,6 +52,6 @@ CREATE TABLE clientes (
   dia_vencimento_fiado INT NOT NULL DEFAULT 10
 );
 
-CREATE INDEX pessoas_id_idx ON clientes (pessoa_id);
+CREATE INDEX x_clientes_pessoas_id ON clientes (pessoa_id);
 
-
+UPDATE empresa SET db_versao = "B0050";
