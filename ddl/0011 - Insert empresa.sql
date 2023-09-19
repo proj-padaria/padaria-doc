@@ -22,3 +22,17 @@ VALUES
 ('45 dias', 45),
 ('15 - 30 - 45 - 60 dias', 38); -- Prazo médio = (15 + 30 + 45 + 60) / 4
 
+INSERT INTO planos_pagamento_dias (plano_pagamento_id,dias_do_vencimento,percentual_pagamento)
+VALUES
+(1,30,100),
+(2,30,50),
+(2,60,50),
+(3,30,33),
+(3,60,33),
+(3,90,34),
+(4,45,100),
+(5,15,25),
+(5,30,25),
+(5,45,25),
+(5,60,25)
+
