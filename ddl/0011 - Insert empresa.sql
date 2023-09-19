@@ -1,8 +1,6 @@
 INSERT INTO empresa (razao_social, nome_fantasia, db_versao)
 VALUES 
-('SKR DA SILVA PADARIA E CONFEITARIA', 'DELICIA ALFREDENSE', 'v.545.0.0'),
-('BEATRIZ CHIDEROLI LTDA', 'CHIDEROLI FERRARI', 'v.540.0.0'),
-('TOLEDO E TORRES EIRELI ME', 'TOLEDO E TORRES', 'v.540.0.1');
+('Padaria do Seu Joaquim', 'Joaquim da esquina', 'B0011');
 
 INSERT INTO cidades (uf_id, nome)
 VALUES 
@@ -24,6 +22,18 @@ VALUES
 ('45 dias', 45),
 ('15 - 30 - 45 - 60 dias', 38); -- Prazo médio = (15 + 30 + 45 + 60) / 4
 
-select*from empresa;
-select*from cidades;
-select*from planos_pagamento;
+INSERT INTO planos_pagamento_dias (plano_pagamento_id,dias_do_vencimento,percentual_pagamento)
+VALUES
+(1,30,100),
+(2,30,50),
+(2,60,50),
+(3,30,33),
+(3,60,33),
+(3,90,34),
+(4,45,100),
+(5,15,25),
+(5,30,25),
+(5,45,25),
+(5,60,25)
+
+UPDATE empresa SET db_versao = 'B0011';

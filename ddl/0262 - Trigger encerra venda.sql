@@ -61,3 +61,5 @@ EXECUTE FUNCTION f_vendas_encerrar();
 
 DROP TRIGGER tbu_vendas_encerrar ON produtos;
 DROP FUNCTION f_vendas_encerrar();
+
+UPDATE empresa SET db_versao = 'B0262';

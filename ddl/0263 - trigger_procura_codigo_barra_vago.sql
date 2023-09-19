@@ -29,6 +29,6 @@ BEGIN
 	END IF;
 	RETURN produto_id;
 END;		
-			 
-SELECT * FROM f_procura_produto_balanca_vago();
+
 						
+UPDATE empresa SET db_versao = 'B0263';

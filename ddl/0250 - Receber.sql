@@ -15,5 +15,9 @@ CREATE INDEX x_receber_venda_id ON receber(venda_id);
 
 CREATE INDEX x_receber_cliente_id ON receber(cliente_id);
 
+<<<<<<< HEAD
 UPDATE empresa SET db_versao = "B0250";
+=======
+UPDATE empresa SET db_versao = 'B0250';
+>>>>>>> 7db97820f1fd01cf096ce5de27f2d4e32f81a9b6
     

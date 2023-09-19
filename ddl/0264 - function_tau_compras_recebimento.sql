@@ -44,3 +44,5 @@ CREATE TRIGGER tau_compras
 AFTER UPDATE ON pagar
 FOR EACH ROW
 EXECUTE FUNCTION f_tau_compras_recebimento();
+
+UPDATE empresa SET db_versao = 'B0264';
