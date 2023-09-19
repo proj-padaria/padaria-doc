@@ -1,6 +1,6 @@
 INSERT INTO empresa (razao_social, nome_fantasia, db_versao)
 VALUES 
-('Padaria do Seu Joaquim', 'Joaquim da esquina', 'v.1.0');
+('Padaria do Seu Joaquim', 'Joaquim da esquina', 'B0011');
 
 INSERT INTO cidades (uf_id, nome)
 VALUES 
