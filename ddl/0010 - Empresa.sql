@@ -25,3 +25,4 @@ CREATE INDEX x_cidades_uf_id ON cidades(uf_id);
 
 CREATE INDEX x_cidades_nome ON cidades(UPPER(nome));
     
+UPDATE empresa SET db_versao = 'B0010';

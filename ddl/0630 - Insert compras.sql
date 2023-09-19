@@ -26,4 +26,4 @@ VALUES
 (),
 ();
 
-UPDATE empresa SET db_versao = "B0630";
+UPDATE empresa SET db_versao = 'B0630';

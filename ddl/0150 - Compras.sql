@@ -68,4 +68,4 @@ CREATE TABLE pagar (
 CREATE INDEX x_pagar_fornecedor_id ON pagar (fornecedor_id);
 CREATE INDEX x_pagar_compra_id ON pagar (compra_id);
 
-UPDATE empresa SET db_versao = "B0150";
+UPDATE empresa SET db_versao = 'B0150';

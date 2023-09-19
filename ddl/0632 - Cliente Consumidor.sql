@@ -16,4 +16,4 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-UPDATE empresa SET db_versao = "B0632";
+UPDATE empresa SET db_versao = 'B0632';

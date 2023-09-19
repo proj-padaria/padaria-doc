@@ -17,4 +17,4 @@ $$ LANGUAGE plpgsql;
 
 select f_reajuste_preco_venda(10);
 
-UPDATE empresa SET db_versao = "B0265";
+UPDATE empresa SET db_versao = 'B0265';

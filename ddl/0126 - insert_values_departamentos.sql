@@ -11,4 +11,4 @@ VALUES
 ('Padaria'),
 ('Rotisseria');
 
-UPDATE empresa SET db_versao = "B0126";
+UPDATE empresa SET db_versao = 'B0126';

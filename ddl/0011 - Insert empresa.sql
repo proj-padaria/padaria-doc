@@ -36,3 +36,4 @@ VALUES
 (5,45,25),
 (5,60,25)
 
+UPDATE empresa SET db_versao = 'B0011';

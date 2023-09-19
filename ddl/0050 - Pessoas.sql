@@ -53,6 +53,6 @@ CREATE TABLE clientes (
 
 CREATE INDEX x_clientes_pessoa_id ON clientes (pessoa_id);
 
-UPDATE empresa SET db_versao = "B0050";
+UPDATE empresa SET db_versao = 'B0050';
 
 
