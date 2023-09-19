@@ -16,3 +16,5 @@ CREATE TRIGGER t_tbiu_cidades
 BEFORE INSERT OR UPDATE ON cidades
 FOR EACH ROW
 EXECUTE FUNCTION f_tbiu_cidades();
+
+UPDATE empresa SET db_versao = "B0260";

@@ -49,3 +49,4 @@ VALUES
 (6,'Sabão em barra','Sabão em barra',3.00,6,'000000000000',5),
 (6,'Sabão em pó OMO','Sabão OMO',11.90,15,'000000000000',5)
 
+UPDATE empresa SET db_versao = "B0620";

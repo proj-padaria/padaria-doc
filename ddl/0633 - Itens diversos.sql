@@ -13,3 +13,5 @@ BEGIN
     RAISE NOTICE 'Item diverso inserido com sucesso!';
 END;
 $$ LANGUAGE plpgsql;
+
+UPDATE empresa SET db_versao = "B0633";

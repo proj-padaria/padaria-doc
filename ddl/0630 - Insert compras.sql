@@ -25,3 +25,5 @@ VALUES
 (4, 2, 69.40, 15-08-2023, 15-08-2023, 34.70),
 (),
 ();
+
+UPDATE empresa SET db_versao = "B0630";

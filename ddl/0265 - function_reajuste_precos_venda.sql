@@ -17,4 +17,4 @@ $$ LANGUAGE plpgsql;
 
 select f_reajuste_preco_venda(10);
 
-DROP FUNCTION  f_reajuste_preco_venda(percentual_reajuste decimal);
+UPDATE empresa SET db_versao = "B0265";

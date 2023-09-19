@@ -28,3 +28,4 @@ VALUES
 ('SE','Sergipe'),
 ('TO','Tocantins');
 
+UPDATE empresa SET db_versao = "B0641";

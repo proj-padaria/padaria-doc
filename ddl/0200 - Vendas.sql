@@ -30,7 +30,7 @@ CREATE INDEX x_vendas_itens_venda_id ON vendas_itens(venda_id);
 
 CREATE INDEX x_vendas_itens_produto_id ON vendas_itens(produto_id);
 
-
+UPDATE empresa SET db_versao = "B0200";
 
   
   
