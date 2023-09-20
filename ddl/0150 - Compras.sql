@@ -31,16 +31,10 @@ CREATE TABLE compras (
 );
 							  
 CREATE  INDEX x_compras_data_compra ON compras(data_compra);
-<<<<<<< HEAD
-CREATE  INDEX x_compras_plano_pagamento_id ON compras(id);  
+CREATE  INDEX x_compras_plano_pagamento_id ON compras(plano_pagamento_id);
 CREATE INDEX x_compras_fornecedor_id ON compras(fornecedor_id);
 	
-	
-=======
-CREATE  INDEX x_compras_plano_pagamento_id ON compras(id);
-CREATE INDEX x_compras_fornecedor_id ON compras(fornecedor_id);
 
->>>>>>> 7db97820f1fd01cf096ce5de27f2d4e32f81a9b6
 CREATE TABLE compras_itens (
   id SERIAL NOT NULL PRIMARY KEY,
   compra_id INT NOT NULL REFERENCES compras(id)
@@ -75,8 +69,5 @@ CREATE TABLE pagar (
 CREATE INDEX x_pagar_fornecedor_id ON pagar (fornecedor_id);
 CREATE INDEX x_pagar_compra_id ON pagar (compra_id);
 
-<<<<<<< HEAD
-UPDATE empresa SET db_versao = "B0150";
-=======
+
 UPDATE empresa SET db_versao = 'B0150';
->>>>>>> 7db97820f1fd01cf096ce5de27f2d4e32f81a9b6
