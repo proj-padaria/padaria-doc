@@ -1,34 +1,28 @@
-CREATE OR REPLACE FUNCTION f_procura_produto_balanca_vago
-RETURNS INTEGER 
+CREATE OR REPLACE FUNCTION f_procura_produto_balanca_vago()
+RETURNS INTEGER AS
 $$
 DECLARE
-	id INTEGER;
+	r record;
 	produto_id INTEGER;
 BEGIN
 	produto_id = 0;
 	
-	FOR id IN(SELECT ID 
+	FOR r IN(SELECT ID 
 			  FROM produtos
 			  WHERE ID < 10000
 			  ORDER BY ID)
 	LOOP
-	DO BEGIN 
 		produto_id = produto_id + 1;
-		
-		IF (produto_id <> id) THEN
-		BEGIN 
+	IF (produto_id <> r.id) THEN
 			RETURN produto_id;
+	ELSEIF (produto_id > 9999)THEN
+	RAISE EXCEPTION 'Todos os valores vagos em codigo_barra foram preenchidos favor excluir codigos sem utilização';
 			EXIT;
-		END IF;
-	END LOOP;
-	
-	produto_id = produto_id + 1;
-	IF produto_id > 9999 THEN
-		RAISE EXCEPTION "Todos os valores vagos em codigo_barra foram preenchidos,
-	 							favor excluir codigos sem utilização";
 	END IF;
-	RETURN produto_id;
+	END LOOP;
 END;		
+$$ LANGUAGE plpgsql;
 
-						
+select f_procura_produto_balanca_vago();
+					
 UPDATE empresa SET db_versao = 'B0263';
