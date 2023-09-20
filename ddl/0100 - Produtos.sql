@@ -22,4 +22,8 @@ CREATE INDEX x_produtos_nome ON produtos(UPPER(nome));
 
 CREATE INDEX x_produtos_quantidade_em_estoque ON produtos(quantidade_em_estoque);
 
+<<<<<<< HEAD
+UPDATE empresa SET db_versao = "B0100";
+=======
 UPDATE empresa SET db_versao = 'B0100';
+>>>>>>> 7db97820f1fd01cf096ce5de27f2d4e32f81a9b6

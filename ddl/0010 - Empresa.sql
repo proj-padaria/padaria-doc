@@ -21,6 +21,8 @@ CREATE TABLE cidades (
   nome VARCHAR(35) NOT NULL
 );
 
+DROP INDEX x_cidades_uf_id;
+
 CREATE INDEX x_cidades_uf_id ON cidades(uf_id);
 
 CREATE INDEX x_cidades_nome ON cidades(UPPER(nome));

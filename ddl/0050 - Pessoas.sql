@@ -36,6 +36,10 @@ CREATE TABLE fornecedores (
   cnpj VARCHAR(15) NOT NULL
 );
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7db97820f1fd01cf096ce5de27f2d4e32f81a9b6
 CREATE INDEX x_fornecedores_pessoa_id ON fornecedores (pessoa_id);
 CREATE INDEX x_fornecedores_cnpj ON fornecedores (cnpj);
 
@@ -51,8 +55,13 @@ CREATE TABLE clientes (
   dia_vencimento_fiado INT NOT NULL DEFAULT 10
 );
 
+<<<<<<< HEAD
+CREATE INDEX x_clientes_pessoas_id ON clientes (pessoa_id);
+=======
 CREATE INDEX x_clientes_pessoa_id ON clientes (pessoa_id);
 
 UPDATE empresa SET db_versao = 'B0050';
 
+>>>>>>> 7db97820f1fd01cf096ce5de27f2d4e32f81a9b6
 
+UPDATE empresa SET db_versao = "B0050";
