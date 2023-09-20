@@ -27,15 +27,8 @@ CREATE TABLE vendas_itens(
 );
 
 CREATE INDEX x_vendas_itens_venda_id ON vendas_itens(venda_id);
-<<<<<<< HEAD
-
-CREATE INDEX x_vendas_itens_produto_id ON vendas_itens(produto_id);
-=======
 
 CREATE INDEX x_vendas_itens_produto_id ON vendas_itens(produto_id);
 
 UPDATE empresa SET db_versao = 'B0200';
->>>>>>> 7db97820f1fd01cf096ce5de27f2d4e32f81a9b6
-
-UPDATE empresa SET db_versao = "B0200";
   
