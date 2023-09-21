@@ -45,7 +45,7 @@ BEGIN
 			  WHERE venda_id = NEW.id)
 		LOOP
         	UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - r.quantidade
-				WHERE id = r.produto_id;
+				WHERE produto_id = NEW.id;
 		END LOOP;
 	
     END IF;
@@ -58,8 +58,5 @@ CREATE TRIGGER tbu_vendas_encerrar
 AFTER UPDATE ON produtos
 FOR EACH ROW
 EXECUTE FUNCTION f_vendas_encerrar();
-
-DROP TRIGGER tbu_vendas_encerrar ON produtos;
-DROP FUNCTION f_vendas_encerrar();
 
 UPDATE empresa SET db_versao = 'B0262';

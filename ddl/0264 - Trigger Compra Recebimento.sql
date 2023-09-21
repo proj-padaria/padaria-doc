@@ -1,10 +1,17 @@
+---------------------------------------------------------------------------
+-- Correção da modelagem, faltou a data do faturamento
+---------------------------------------------------------------------------
+ALTER TABLE compras ADD COLUMN data_faturamento DATE;
+
+---------------------------------------------------------------------------
+-- Recebimento de compra
+---------------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION f_tau_compras_recebimento()
 RETURNS TRIGGER AS $$
 DECLARE
-	vencimento DATE;
 	r RECORD;
 	valor_da_parcela INT;
-	data_faturamento DATE;
+	data_vencimento DATE;
 	-- Se a data de recebimento antiga for nula e a data de recebimento nova não, então é encerrada a compra
 	-- Efetua o recebimento da compra e atualiza o estoque dos itens comprados.
 	-- E insere no pagar os valores das faturas.
@@ -18,8 +25,8 @@ BEGIN
 			-- Atualizar estoque do produto lido		
 			
         	UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque + r.quantidade_recebida
-			WHERE id = produto_id;
-		END LOOP
+			WHERE id = r.produto_id;
+		END LOOP;
 								  
 		-- Inserir os pagar da compra
 		-- 1 - Buscar os dias de pagamento dessa compra
@@ -27,14 +34,14 @@ BEGIN
 		for r IN (SELECT dias_do_vencimento, percentual_pagamento
 				  FROM planos_pagamento_dias
 				  WHERE plano_pagamento_id = NEW.plano_pagamento_id
-				  ORDER BY dias_do_vencimento
+				  ORDER BY dias_do_vencimento)
 		LOOP 
-			valor_da_parcela = NEW.valor_total_comprado * r.percentual_pagamento / 100;
-			data_faturamento = CURRENT_DATE + dias_do_vencimento;
-			-- adicionar pagar para o NEW.fornecedor_id para vencimento hoje + dias_do_vencimento com o valor da parcela.
-			INSERT INTO pagar (id, fornecedor_id, compra_id, valor, data_vencimento)
-				  VALUES (NEW.id, NEW.fornecedor_id, NEW.compra_id, valor, data_faturamento)
-		END LOOP
+			valor_da_parcela = NEW.valor_total_recebido * r.percentual_pagamento / 100;
+			data_vencimento = NEW.data_faturamento + r.dias_do_vencimento;
+			-- adicionar pagar para o NEW.fornecedor_id para vencimento data do faturamento + dias_do_vencimento com o valor da parcela.
+			INSERT INTO pagar (fornecedor_id, compra_id, valor, data_vencimento)
+				  VALUES (NEW.fornecedor_id, NEW.compra_id, valor_da_parcela, data_vencimento);
+		END LOOP;
 		
     END IF;
 
@@ -43,7 +50,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER tau_compras
-AFTER UPDATE ON pagar
+AFTER UPDATE ON compras
 FOR EACH ROW
 EXECUTE FUNCTION f_tau_compras_recebimento();
 
