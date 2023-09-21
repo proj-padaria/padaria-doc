@@ -45,7 +45,7 @@ BEGIN
 			  WHERE venda_id = NEW.id)
 		LOOP
         	UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - r.quantidade
-				WHERE produto_id = NEW.id;
+				WHERE id = r.produto_id;
 		END LOOP;
 	
     END IF;
