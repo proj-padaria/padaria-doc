@@ -1,5 +1,3 @@
-drop trigger t_tbiu_cidades on cidades;
-
 CREATE OR REPLACE FUNCTION f_tbiu_cidades()
 RETURNS TRIGGER AS $$
 BEGIN
