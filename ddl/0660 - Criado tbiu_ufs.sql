@@ -1,0 +1,14 @@
+CREATE OR REPLACE FUNCTION f_tbiu_ufs()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.sigla = UPPER (NEW.sigla);
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER tbiu_ufs
+BEFORE INSERT OR UPDATE ON ufs
+FOR EACH ROW
+EXECUTE FUNCTION f_tbiu_ufs();
+
+UPDATE empresa SET db_versao = 'B0660';
