@@ -14,7 +14,7 @@ BEGIN
 		IF NEW.fiado > 0 THEN
 			SELECT INTO dia_fiado dia_vencimento_fiado
 			FROM clientes
-			WHERE id = NEW.cliente_id;
+			WHERE pessoa_id = NEW.cliente_id;
 			-- o vencimento = data com o dia_fiado
 			-- ATENÇÃO: Se o dia de hoje for >= o dia_fiado, então o mês do vencimento é o mês seguinte
 			-- Gerar o valor da variável vencimento
@@ -55,7 +55,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER tbu_vendas_encerrar
-AFTER UPDATE ON produtos
+AFTER UPDATE ON vendas
 FOR EACH ROW
 EXECUTE FUNCTION f_vendas_encerrar();
 
