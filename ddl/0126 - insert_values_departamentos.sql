@@ -1,3 +1,9 @@
+delete from produtos;
+
+delete from departamentos;
+
+ALTER SEQUENCE departamentos_id_seq RESTART WITH 1;
+
 INSERT INTO departamentos (nome)					
 
 VALUES 
