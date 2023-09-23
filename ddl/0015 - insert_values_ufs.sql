@@ -2,6 +2,8 @@ delete from planos_pagamento_dias;
 
 delete from compras_itens;
 
+delete from pagar;
+
 delete from compras;
 
 delete from planos_pagamento;
@@ -29,10 +31,6 @@ delete from receber;
 delete from vendas;
 
 delete from vendas_itens;
-
-delete from pagar;
-
-
 
 
 ALTER SEQUENCE ufs_id_seq RESTART WITH 1;
