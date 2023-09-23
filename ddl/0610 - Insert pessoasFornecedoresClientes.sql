@@ -1,9 +1,3 @@
-delete from fornecedores;
-
-delete from clientes;
-
-delete from pessoas;
-
 ALTER SEQUENCE pessoas_id_seq RESTART WITH 1;
 
 INSERT INTO pessoas (cidade_id,nome,logradouro,logradouro_numero,bairro,cep,email,data_cadastro)					
