@@ -2,6 +2,14 @@
 
 -- ESTA PARTE É PARA ADICIONAR OS DEPARTAMENTOS
 
+delete from produtos;
+
+delete from departamentos;
+
+ALTER SEQUENCE produtos_id_seq RESTART WITH 1;
+
+ALTER SEQUENCE departamentos_id_seq RESTART WITH 1;
+
 INSERT INTO departamentos (nome)					
 VALUES 
 ('Açougue'),
