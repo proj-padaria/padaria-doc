@@ -1,10 +1,6 @@
-delete from empresa;
-
 INSERT INTO empresa (razao_social, nome_fantasia, db_versao)
 VALUES 
 ('Padaria do Seu Joaquim', 'Joaquim da esquina', 'B0011');
-
-delete from cidades;
 
 ALTER SEQUENCE cidades_id_seq RESTART WITH 1 ;
 
@@ -20,10 +16,6 @@ VALUES
 (24, 'Catanduva'),
 (12, 'Belo Horizonte');
 
-delete from planos_pagamento_dias;
-
-delete from planos_pagamento;
-
 ALTER SEQUENCE planos_pagamento_id_seq RESTART WITH 1;
 
 INSERT INTO planos_pagamento (descricao, prazo_medio)
@@ -33,8 +25,6 @@ VALUES
 ('30 - 60 - 90 dias', 60),
 ('45 dias', 45),
 ('15 - 30 - 45 - 60 dias', 38); -- Prazo médio = (15 + 30 + 45 + 60) / 4
-
-delete from planos_pagamento_dias;
 
 ALTER SEQUENCE planos_pagamento_dias_id_seq RESTART WITH 1;
 
