@@ -7,7 +7,8 @@ CREATE TABLE vendas(
   valor_total DECIMAL(14,2) NOT NULL,
   pago_dinheiro DECIMAL(14,2) NOT NULL DEFAULT 0.00,
   pago_cartao DECIMAL(14,2) NOT NULL DEFAULT 0.00,
-  fiado DECIMAL(14,2) NOT NULL DEFAULT 0.00
+  fiado DECIMAL(14,2) NOT NULL DEFAULT 0.00,
+  data_fim TIMESTAMP
 );
 
 CREATE INDEX x_vendas_data ON vendas(data);
