@@ -23,9 +23,9 @@ VALUES
 
 ALTER SEQUENCE produtos_id_seq RESTART WITH 1;
 
-INSERT INTO produtos (id, departamento_id, nome, nome_abreviado, preco_venda, quantidade_em_estoque, codigo_barra,
+INSERT INTO produtos (departamento_id, nome, nome_abreviado, preco_venda, quantidade_em_estoque, codigo_barra,
 						 ponto_pedido)
-VALUES (1, 1, 'Diversos', 'Diversos', 0.00, 0, 'N/D', 0);
+VALUES (1, 'Diversos', 'Diversos', 0.00, 0, 'N/D', 0);
     
 
 INSERT INTO produtos (departamento_id , nome, nome_abreviado, preco_venda, quantidade_em_estoque, codigo_barra, ponto_pedido)					
