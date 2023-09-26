@@ -9,6 +9,8 @@ VALUES
 (2, 4, '01/09/2023', 4520.00, 2590.00, '19/09/2023'),
 (2, 5, '12/09/2023', 3000.00, 3000.00, '19/09/2023');
 
+ALTER SEQUENCE compras_itens_id_seq RESTART WITH 1;
+
 INSERT INTO compras_itens (compra_id, produto_id, quantidade_comprada, quantidade_recebida,
 						  	preco_unitario, total_da_linha)
 VALUES
@@ -22,6 +24,7 @@ VALUES
 (4, 8, 1310, 759, 3.41, 2590),
 (4, 9, 380, 380, 7.90, 3000);
 
+ALTER SEQUENCE pagar_id_seq RESTART WITH 1;
 
 INSERT INTO pagar (fornecedor_id, compra_id, valor, data_vencimento, data_pagamento, valor_pago)
 
