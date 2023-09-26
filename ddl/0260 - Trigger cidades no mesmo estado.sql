@@ -12,7 +12,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER t_tbiu_cidades
+CREATE TRIGGER tbiu_cidades
 BEFORE INSERT OR UPDATE ON cidades
 FOR EACH ROW
 EXECUTE FUNCTION f_tbiu_cidades();
