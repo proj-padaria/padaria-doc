@@ -1,3 +1,7 @@
+-----------------------------------------------------------------------
+-- * CUIDADO USAR SOMENTE NA CRIAÇÃO DO BANCO *
+-- * OU QUANDO QUISER VOLTAR O BANCO AO ESTADO INICIAL DA IMPLANTAÇÃO *
+-----------------------------------------------------------------------
 delete from planos_pagamento_dias;
 
 delete from compras_itens;
