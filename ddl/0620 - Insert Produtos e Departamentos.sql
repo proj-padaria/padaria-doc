@@ -2,8 +2,6 @@
 
 -- ESTA PARTE É PARA ADICIONAR OS DEPARTAMENTOS
 
-ALTER SEQUENCE produtos_id_seq RESTART WITH 1;
-
 ALTER SEQUENCE departamentos_id_seq RESTART WITH 1;
 
 INSERT INTO departamentos (nome)					
@@ -22,6 +20,8 @@ VALUES
 
 -- COMECAR A ADICIONAR DE CIMA PARA BAIXO NESTA ORDEM
 -- ESTA PARTE É PARA ADICIONAR NO SETOR DE AÇOUGUE
+
+ALTER SEQUENCE produtos_id_seq RESTART WITH 1;
 
 INSERT INTO produtos (departamento_id , nome, nome_abreviado, preco_venda, quantidade_em_estoque, codigo_barra, ponto_pedido)					
 
@@ -44,24 +44,6 @@ VALUES
 (2,'SUCO N.ONE LARANJA 1.5L','SUCO N.ONE LARANJA',17.90,0,'7899916900503',20),
 (2,'SUCO PRATS 1,7L LARANJA','SUCO PRATS 1.7L LAR.',4.50,0,'7898953148541',20),
 (2,'VINHO ARGENTINO HEREFO. 750ML','VIN. ARG. HER. 750ML',29.90,0,'7791540046506',15);
-
--- ESTA PARTE É PARA ADICIONAR NO SETOR DE CEREAIS
--- DLL comentada por não haver produto ainda inserido
-
---INSERT INTO produtos (departamento_id , nome, nome_abreviado, preco_venda, quantidade_em_estoque, codigo_barra, ponto_pedido)					
---VALUES 
---(3,'--','--',0.00,0,'-------------',5),
-
-
--- ESTA PARTE É PARA ADICIONAR NO SETOR DE ENLATADOS
--- DLL comentada por não haver produto ainda inserido
-
---INSERT INTO produtos (departamento_id , nome, nome_abreviado, preco_venda, quantidade_em_estoque, codigo_barra, ponto_pedido)					
---
---VALUES 
---(4,'------','-----',0.00,0,'--------------',5),
-
-
 
 -- ESTA PARTE É PARA ADICIONAR NO SETOR DE LATICÍNIOS
 
