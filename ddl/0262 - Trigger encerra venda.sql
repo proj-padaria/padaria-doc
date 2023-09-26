@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION f_vendas_encerrar()
+CREATE OR REPLACE FUNCTION f_tau_vendas_encerrar()
 RETURNS TRIGGER AS $$
 DECLARE
 	vencimento DATE;
@@ -54,9 +54,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER tbu_vendas_encerrar
+CREATE TRIGGER tau_vendas_encerrar
 AFTER UPDATE ON vendas
 FOR EACH ROW
-EXECUTE FUNCTION f_vendas_encerrar();
+EXECUTE FUNCTION f_tau_vendas_encerrar();
 
 UPDATE empresa SET db_versao = 'B0262';
