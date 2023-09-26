@@ -1,9 +1,4 @@
 ---------------------------------------------------------------------------
--- Correção da modelagem, faltou a data do faturamento
----------------------------------------------------------------------------
-ALTER TABLE compras ADD COLUMN data_faturamento DATE;
-
----------------------------------------------------------------------------
 -- Recebimento de compra
 ---------------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION f_tau_compras_recebimento()
