@@ -42,4 +42,4 @@ VALUES
 (2, 5, 3000.00,'12/11/2023', null, null);
 
 
-UPDATE empresa SET db_versao = 'B0630';
+UPDATE empresa SET db_versao = 'RC 1.00';
