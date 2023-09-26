@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------
+-- Correção da modelagem, faltou a data do faturamento
+---------------------------------------------------------------------------
+ALTER TABLE compras ADD COLUMN data_faturamento DATE;
+
+---------------------------------------------------------------------------
 -- Recebimento de compra
 ---------------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION f_tau_compras_recebimento()
@@ -9,7 +14,7 @@ DECLARE
 	data_vencimento DATE;
 	-- Se a data de recebimento antiga for nula e a data de recebimento nova não, então é encerrada a compra
 	-- Efetua o recebimento da compra e atualiza o estoque dos itens comprados.
-	-- E insere no pagar os valores das faturas.
+	-- E insere no pagar os valores das faturas. 
 BEGIN
     IF NEW.data_recebimento IS NOT NULL AND OLD.data_recebimento IS NULL THEN
 		-- Atualizar estoque
