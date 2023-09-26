@@ -18,7 +18,7 @@ VALUES
 INSERT INTO fornecedores(pessoa_id,cnpj)
 
 VALUES
-(1,12345678000100),
-(2,32445677382100);
+(2,12345678000100),
+(3,32445677382100);
 
 UPDATE empresa SET db_versao = 'B0610';
