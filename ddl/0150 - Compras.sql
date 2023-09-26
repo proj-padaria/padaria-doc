@@ -28,6 +28,7 @@ CREATE TABLE compras (
   valor_total_comprado DECIMAL(14,2) NOT NULL,
   valor_total_recebido DECIMAL(14,2),
   data_recebimento DATE
+  data_faturamento DATE
 );
 							  
 CREATE  INDEX x_compras_data_compra ON compras(data_compra);
