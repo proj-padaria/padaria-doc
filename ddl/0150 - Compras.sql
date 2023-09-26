@@ -27,7 +27,7 @@ CREATE TABLE compras (
   data_compra DATE NOT NULL,
   valor_total_comprado DECIMAL(14,2) NOT NULL,
   valor_total_recebido DECIMAL(14,2),
-  data_recebimento DATE
+  data_recebimento DATE,
   data_faturamento DATE
 );
 							  
