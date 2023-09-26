@@ -86,9 +86,10 @@ VALUES
 (9,'MAMINHA ASSADA KG','MAMINHA ASSADA KG',55.90,0,'0246171020000',5),
 (9,'LINGUICA ASSADA KG','LINGUICA ASSADA KG',15.90,0,'0246171030000',20);
 
--- ESTA PARTE É PARA ADICIONAR NO SETOR DA ADEGA
 
 ALTER SEQUENCE produtos_id_seq RESTART WITH 10000;
+
+-- ESTA PARTE É PARA ADICIONAR NO SETOR DA ADEGA
 
 INSERT INTO produtos (departamento_id , nome, nome_abreviado, preco_venda, quantidade_em_estoque, codigo_barra, ponto_pedido)					
 
