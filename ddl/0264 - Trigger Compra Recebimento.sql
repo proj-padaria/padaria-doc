@@ -49,7 +49,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER tau_compras
+CREATE TRIGGER tau_compras_recebimento
 AFTER UPDATE ON compras
 FOR EACH ROW
 EXECUTE FUNCTION f_tau_compras_recebimento();
