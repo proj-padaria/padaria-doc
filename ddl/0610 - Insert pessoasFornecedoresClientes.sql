@@ -1,3 +1,4 @@
+
 ALTER SEQUENCE pessoas_id_seq RESTART WITH 2;
 
 INSERT INTO pessoas (cidade_id,nome,logradouro,logradouro_numero,bairro,cep,email,data_cadastro)					
@@ -8,6 +9,7 @@ VALUES
 (8,'Paulo Peixoto','R. dos peixes',222,'Aquarios','10233481','ppeixoto@gmail.com','2023-02-20'),
 (1,'Antolena Luz','R. dos iluminados',310,'Escuro','11230481','antoluz@gmail.com','2023-02-21');
 
+alter sequence clientes_id_seq RESTART WITH 2;
 INSERT INTO clientes (pessoa_id, data_nascimento, renda_mensal,documento,limite_de_credito,dia_vencimento_fiado)
 
 VALUES
