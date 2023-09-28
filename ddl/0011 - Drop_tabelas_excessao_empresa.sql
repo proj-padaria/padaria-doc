@@ -4,14 +4,20 @@
 -----------------------------------------------------------------------
 DROP TABLE telefones;
 DROP TABLE pagar;
-DROP TABLE fornecedores;
+
 DROP TABLE compras_itens;
 DROP TABLE compras;
-DROP TABLE pessoas;
-DROP TABLE clientes;
+
 DROP TABLE receber;
+
+
 DROP TABLE vendas_itens;
 DROP TABLE vendas;
+
+DROP TABLE fornecedores;
+DROP TABLE clientes;
+DROP TABLE pessoas;
+
 DROP TABLE produtos;
 DROP TABLE departamentos;
 DROP TABLE planos_pagamento_dias;
