@@ -1,4 +1,4 @@
-ALTER SEQUENCE pessoas_id_seq RESTART WITH 1;
+ALTER SEQUENCE pessoas_id_seq RESTART WITH 2;
 
 INSERT INTO pessoas (cidade_id,nome,logradouro,logradouro_numero,bairro,cep,email,data_cadastro)					
 
