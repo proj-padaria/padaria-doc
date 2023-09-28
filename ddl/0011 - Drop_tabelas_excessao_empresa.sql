@@ -12,7 +12,6 @@ DROP TABLE clientes;
 DROP TABLE receber;
 DROP TABLE vendas_itens;
 DROP TABLE vendas;
-DROP FUNCTION f_verifica_ponto_pedido(ponto_pedido_produto int);
 DROP TABLE produtos;
 DROP TABLE departamentos;
 DROP TABLE planos_pagamento_dias;
