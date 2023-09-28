@@ -19,7 +19,6 @@ VALUES
 ('Gerais');
 
 -- COMECAR A ADICIONAR DE CIMA PARA BAIXO NESTA ORDEM
--- ESTA PARTE É PARA ADICIONAR NO SETOR DE AÇOUGUE
 
 ALTER SEQUENCE produtos_id_seq RESTART WITH 1;
 
@@ -27,6 +26,7 @@ INSERT INTO produtos (departamento_id, nome, nome_abreviado, preco_venda, quanti
 						 ponto_pedido)
 VALUES (11, 'Diversos', 'Diversos', 0.00, 0, 'N/D', 0);
     
+-- ESTA PARTE É PARA ADICIONAR NO SETOR DE AÇOUGUE	
 
 INSERT INTO produtos (departamento_id , nome, nome_abreviado, preco_venda, quantidade_em_estoque, codigo_barra, ponto_pedido)					
 
