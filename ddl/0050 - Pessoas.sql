@@ -29,10 +29,10 @@ CREATE TABLE telefones (
 CREATE INDEX x_telefones_pessoa_id ON telefones(pessoa_id);
 
 CREATE TABLE fornecedores (
-  pessoa_id INT NOT NULL PRIMARY KEY
-						 REFERENCES pessoas (id)
-    						ON DELETE RESTRICT
-    						ON UPDATE CASCADE,
+  id SERIAL NOT NULL PRIMARY KEY,   --adicionado id como pk alterado pessoa_id para somente fk
+  pessoa_id INT NOT NULL REFERENCES pessoas (id)
+    					 ON DELETE RESTRICT
+    					 ON UPDATE CASCADE,
   cnpj VARCHAR(15) NOT NULL
 );
 
@@ -40,8 +40,8 @@ CREATE INDEX x_fornecedores_pessoa_id ON fornecedores (pessoa_id);
 CREATE INDEX x_fornecedores_cnpj ON fornecedores (cnpj);
 
 CREATE TABLE clientes (
-  pessoa_id INT NOT NULL PRIMARY KEY
-						 REFERENCES pessoas (id)
+  id SERIAL NOT NULL PRIMARY KEY,   --adicionado id como pk alterado pessoa_id para somente fk
+  pessoa_id INT NOT NULL REFERENCES pessoas (id)
     						ON DELETE RESTRICT
     						ON UPDATE CASCADE,
   data_nascimento DATE ,

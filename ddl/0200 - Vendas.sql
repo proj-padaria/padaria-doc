@@ -1,6 +1,6 @@
 CREATE TABLE vendas(
   id SERIAL NOT NULL PRIMARY KEY,
-  cliente_id INT NOT NULL REFERENCES clientes(pessoa_id)
+  cliente_id INT NOT NULL REFERENCES clientes(id)
 							ON UPDATE CASCADE
 							ON DELETE RESTRICT,
   data DATE NOT NULL,

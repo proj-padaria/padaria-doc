@@ -3,7 +3,7 @@ CREATE TABLE receber (
   venda_id INT NOT NULL REFERENCES vendas(id)
 							ON UPDATE CASCADE
    							ON DELETE RESTRICT,
-  cliente_id INT NOT NULL REFERENCES clientes(pessoa_id)
+  cliente_id INT NOT NULL REFERENCES clientes(id)
 							ON UPDATE CASCADE
    							ON DELETE RESTRICT,
   valor DECIMAL(14,2) NOT NULL,
