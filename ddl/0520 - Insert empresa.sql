@@ -14,9 +14,9 @@ VALUES
 (5, 'Porto Seguro'),
 (15, 'Curitiba'),
 (24, 'Catanduva'),
-(12, 'Belo Horizonte');
+(12, 'Belo Horizonte');   
 
-ALTER SEQUENCE planos_pagamento_id_seq RESTART WITH 1;
+ALTER SEQUENCE planos_pagamento_id_seq RESTART WITH 1;  --rodar apartir deste insert 
 
 INSERT INTO planos_pagamento (descricao, prazo_medio)
 VALUES
