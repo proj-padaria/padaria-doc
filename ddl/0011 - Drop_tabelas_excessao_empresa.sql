@@ -18,6 +18,9 @@ DROP TABLE fornecedores;
 DROP TABLE clientes;
 DROP TABLE pessoas;
 
+DROP TABLE cidades;
+DROP TABLE ufs;
+
 DROP TABLE produtos;
 DROP TABLE departamentos;
 DROP TABLE planos_pagamento_dias;
