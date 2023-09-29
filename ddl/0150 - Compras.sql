@@ -18,7 +18,7 @@ CREATE INDEX x_planos_pagamentos_dias_plano_pagamento_id ON planos_pagamento_dia
 
 CREATE TABLE compras (
   id SERIAL NOT NULL PRIMARY KEY,
-  fornecedor_id INT NOT NULL REFERENCES pessoas(id)
+  fornecedor_id INT NOT NULL REFERENCES fornecedores(id)
 								ON UPDATE CASCADE
 								ON DELETE RESTRICT,
   plano_pagamento_id INT NOT NULL REFERENCES planos_pagamento(id)
