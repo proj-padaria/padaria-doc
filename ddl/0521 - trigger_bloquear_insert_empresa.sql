@@ -5,8 +5,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER tbiud_f_bloquear_insert_empresa
-BEFORE INSERT OR UPDATE OR DELETE ON empresa
+CREATE TRIGGER tbid_f_bloquear_insert_empresa
+BEFORE INSERT OR DELETE ON empresa
 FOR EACH ROW
 EXECUTE FUNCTION f_bloquear_insert_empresa();
+
 
