@@ -12,7 +12,9 @@ DECLARE
 	-- E insere no pagar os valores das faturas. 
 BEGIN
     IF NEW.data_recebimento IS NOT NULL AND OLD.data_recebimento IS NULL THEN
-		-- Atualizar estoque
+		IF NEW.data_faturamento IS NULL THEN
+			RAISE EXCEPTION 'Falta a data do faturamento no recebimento da compra'
+	    		-- Atualizar estoque
 		for r IN (SELECT produto_id, quantidade_recebida
 				  FROM compras_itens
 				  WHERE compra_id = NEW.id)
