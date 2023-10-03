@@ -49,13 +49,22 @@ http://localhost:8080/cidades/list
 # Para endpoints que contenham um body, é indicado utilizar o aplicativo Postman ou um similar.
 ```
 
+### Como usar
+ <!--ts-->
+* [Pré-Requisitos](#pre-requisitos)
+
+    - Necessário Instalação de uma IDE;
+    - Necessário Instalação do Postgresql para que as ddl's sejam executadas;
+    - Necessário Instalação de software que permite enviar solicitações HTTP para APIs (recomendado Postman) para que seja possível o teste dos end points
+  <!--te-->
+
 ### Agradecimentos
 
 
 ### Autores
 <img style="width:100px" src="https://pixabay.com/pt/photos/retrato-senhorita-garota-rosto-1886231/" alt="Imagem da desenvolvedora">
 
-[Linkedin](https://www.linkedin.com/in/ana) Ana Júlia
+Ana Júlia https://www.linkedin.com/in/ana
 
 Gustavo https://www.linkedin.com/in/gustavo
 
