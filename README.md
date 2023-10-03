@@ -53,8 +53,8 @@ http://localhost:8080/cidades/list
  <!--ts-->
 * [Pré-Requisitos](#pre-requisitos)
 
-    - Necessário Instalação de uma IDE(recomendado IntelliJ) para integração com o banco de dados
-    - Necessário Instalação de um SQL(recomendado Postgresql) para que as ddl's sejam executadas
+    - Necessário Instalação de uma IDE;
+    - Necessário Instalação do Postgresql para que as ddl's sejam executadas;
     - Necessário Instalação de software que permite enviar solicitações HTTP para APIs (recomendado Postman) para que seja possível o teste dos end points
   <!--te-->
 
