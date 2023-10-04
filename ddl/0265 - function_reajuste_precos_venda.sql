@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION f_reajuste_preco_venda(percentual_reajuste decimal(8,2))
+CREATE OR REPLACE FUNCTION f_reajuste_preco_venda(percentual_reajuste float)
 RETURNS INT AS $$
 DECLARE
 	r record;
@@ -14,5 +14,6 @@ BEGIN
     RETURN quantidade_de_registros;
 END;
 $$ LANGUAGE plpgsql;
+
 
 UPDATE empresa SET db_versao = 'B0265';
