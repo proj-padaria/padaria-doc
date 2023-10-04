@@ -33,3 +33,6 @@ ORDER BY vi.produto_id;
 	END IF;
 END;
 $$ LANGUAGE plpgsql;
+
+
+
