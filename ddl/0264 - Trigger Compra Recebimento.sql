@@ -37,7 +37,7 @@ BEGIN
 			data_vencimento = NEW.data_faturamento + r.dias_do_vencimento;
 			-- adicionar pagar para o NEW.fornecedor_id para vencimento data do faturamento + dias_do_vencimento com o valor da parcela.
 			INSERT INTO pagar (fornecedor_id, compra_id, valor, data_vencimento)
-				  VALUES (NEW.fornecedor_id, NEW.compra_id, valor_da_parcela, data_vencimento);
+				  VALUES (NEW.fornecedor_id, NEW.id, valor_da_parcela, data_vencimento);
 		END LOOP;
 		
     END IF;
