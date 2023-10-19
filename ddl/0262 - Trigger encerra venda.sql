@@ -32,7 +32,7 @@ BEGIN
 				
 			END IF;
 			-- Ajustar a data do vencimento com os valores encontrados de dia_fiado/mes_atual/ano_atual
-			vencimento = make_to_date(ano_vencimento, mes_vencimento, dia_fiado);
+			vencimento = make_date(ano_vencimento, mes_vencimento, dia_fiado);
 			
         	INSERT INTO receber (venda_id, cliente_id, valor, data_vencimento)
 				VALUES (NEW.id, NEW.cliente_id, NEW.fiado, vencimento);
