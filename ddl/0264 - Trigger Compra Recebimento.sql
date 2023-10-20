@@ -15,7 +15,7 @@ BEGIN
 		IF NEW.data_faturamento IS NULL THEN
 			RAISE EXCEPTION 'Falta a data do faturamento no recebimento da compra'
 	    		-- Atualizar estoque
-		for r IN (SELECT produto_id, quantidade_recebida
+		FOR r IN (SELECT produto_id, quantidade_recebida
 				  FROM compras_itens
 				  WHERE compra_id = NEW.id)
 		LOOP
@@ -37,7 +37,7 @@ BEGIN
 			data_vencimento = NEW.data_faturamento + r.dias_do_vencimento;
 			-- adicionar pagar para o NEW.fornecedor_id para vencimento data do faturamento + dias_do_vencimento com o valor da parcela.
 			INSERT INTO pagar (fornecedor_id, compra_id, valor, data_vencimento)
-				  VALUES (NEW.fornecedor_id, NEW.compra_id, valor_da_parcela, data_vencimento);
+				  VALUES (NEW.fornecedor_id, NEW.id, valor_da_parcela, data_vencimento);
 		END LOOP;
 		
     END IF;
