@@ -15,7 +15,7 @@ BEGIN
 		IF NEW.data_faturamento IS NULL THEN
 			RAISE EXCEPTION 'Falta a data do faturamento no recebimento da compra';
 	    		-- Atualizar estoque
-		for r IN (SELECT produto_id, quantidade_recebida
+		FOR r IN (SELECT produto_id, quantidade_recebida
 				  FROM compras_itens
 				  WHERE compra_id = NEW.id)
 		LOOP
