@@ -13,7 +13,7 @@ DECLARE
 BEGIN
     IF NEW.data_recebimento IS NOT NULL AND OLD.data_recebimento IS NULL THEN
 		IF NEW.data_faturamento IS NULL THEN
-			RAISE EXCEPTION 'Falta a data do faturamento no recebimento da compra'
+			RAISE EXCEPTION 'Falta a data do faturamento no recebimento da compra';
 	    		-- Atualizar estoque
 		for r IN (SELECT produto_id, quantidade_recebida
 				  FROM compras_itens
@@ -43,6 +43,7 @@ BEGIN
     END IF;
 
     RETURN NEW;
+	END IF;
 END;
 $$ LANGUAGE plpgsql;
 
